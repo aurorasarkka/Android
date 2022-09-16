@@ -72,7 +72,7 @@ public class GameActivity extends AppCompatActivity {
 
         //random number generator
         Random rand = new Random();
-        rand_int1 = rand.nextInt(3+1);
+        rand_int1 = rand.nextInt(3)+1;
 
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation1);
         ImageView image = (ImageView) findViewById(R.id.imagebutton1);
