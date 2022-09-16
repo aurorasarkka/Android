@@ -29,17 +29,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TableRow android:orientation="vertical">
+
+        <TableRow android:orientation="vertical"
+            >
 
             <ImageButton
                 android:id="@+id/imagebutton1"
                 android:layout_width="150dp"
-                android:layout_height="150dp" />
+                android:layout_height="150dp"
+
+                />
+
 
             <ImageButton
                 android:id="@+id/imagebutton2"
                 android:layout_width="150dp"
-                android:layout_height="150dp" />
+                android:layout_height="150dp"
+
+                />
         </TableRow>
 
         <TableRow>
@@ -47,12 +54,14 @@
             <ImageButton
                 android:id="@+id/imagebutton3"
                 android:layout_width="150dp"
-                android:layout_height="150dp" />
+                android:layout_height="150dp"
+               />
 
             <ImageButton
                 android:id="@+id/imagebutton4"
                 android:layout_width="150dp"
-                android:layout_height="150dp" />
+                android:layout_height="150dp"
+               />
 
 
         </TableRow>
@@ -64,6 +73,7 @@
             android:layout_gravity="end|bottom"
             android:src="@android:drawable/ic_input_add"
             android:layout_margin="16dp" />
+
     </TableLayout>
 
 

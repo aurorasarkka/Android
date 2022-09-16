@@ -2,13 +2,17 @@ package com.example.android;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Random;
+
 public class GameActivity extends AppCompatActivity {
 
     private ImageButton gamebutton1;
@@ -16,22 +20,17 @@ public class GameActivity extends AppCompatActivity {
     private ImageButton gamebutton3;
     private ImageButton gamebutton4;
     private FloatingActionButton floatingActionButton;
+    int rand_int1;
+    Animation animation;
 
-    public class generateRandom {
-        public void main(String args[]) {
-
-            Random rand = new Random();
-
-
-            int rand_int1 = rand.nextInt(4);
-
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation1);
+
 
         gamebutton1 = findViewById(R.id.imagebutton1);
         gamebutton1.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +39,7 @@ public class GameActivity extends AppCompatActivity {
                 handleClickEvents(view);
             }
         });
-        gamebutton2 = findViewById(R.id.imagebutton4);
+        gamebutton2 = findViewById(R.id.imagebutton2);
         gamebutton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,6 +69,14 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
+
+        Random rand = new Random();
+        rand_int1 = rand.nextInt(4);
+
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation1);
+        ImageView image = (ImageView) findViewById(R.id.imagebutton1);
+        image.startAnimation(animation);
+
     }
 
 
@@ -77,20 +84,26 @@ public class GameActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.imagebutton1:
                 gamebutton1.setVisibility(View.INVISIBLE);
+                gamebutton1.startAnimation((animation));
                 break;
             case R.id.imagebutton2:
                 gamebutton2.setVisibility(View.INVISIBLE);
+                gamebutton2.startAnimation((animation));
                 break;
             case R.id.imagebutton3:
                 gamebutton3.setVisibility(View.INVISIBLE);
+                gamebutton3.startAnimation((animation));
                 break;
             case R.id.imagebutton4:
                 gamebutton4.setVisibility(View.INVISIBLE);
+                gamebutton4.startAnimation((animation));
                 break;
 
             case R.id.fab:
                 finish();
+                overridePendingTransition(0, 0);
                 startActivity(getIntent());
+                overridePendingTransition(0, 0);
 
             default:
         }
