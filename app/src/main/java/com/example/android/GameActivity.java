@@ -23,6 +23,7 @@ public class GameActivity extends AppCompatActivity {
     private FloatingActionButton floatingActionButton;
     int rand_int1;
     Animation animation;
+    public static final String PREFS_NAME = "MyPrefsFile";
 
 
     @Override
@@ -31,6 +32,12 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation1);
+
+        //pelin tulos
+        
+
+
+
 
 
         gamebutton1 = findViewById(R.id.imagebutton1);
@@ -70,6 +77,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
+
         //random number generator
         Random rand = new Random();
         rand_int1 = rand.nextInt(3)+1;
@@ -80,7 +88,7 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    //jokainen kortti -> voi tulla tyhjiä ei löyä joka kerta
+    //jokainen kortti
     public void handleClickEvents(View view) {
         switch (view.getId()) {
             case R.id.imagebutton1:
@@ -90,6 +98,7 @@ public class GameActivity extends AppCompatActivity {
                     gamebutton1.setImageResource(R.mipmap.music_note);
                     gamebutton1.setBackgroundColor(Color.GREEN);
                     gamebutton1.setVisibility(View.VISIBLE);
+
 
                 }
 
@@ -101,6 +110,7 @@ public class GameActivity extends AppCompatActivity {
                     gamebutton2.setImageResource(R.mipmap.music_note);
                     gamebutton2.setBackgroundColor(Color.GREEN);
                     gamebutton2.setVisibility(View.VISIBLE);
+
 
                 }
                 break;
@@ -131,6 +141,9 @@ public class GameActivity extends AppCompatActivity {
                 overridePendingTransition(0, 0);
                 startActivity(getIntent());
                 overridePendingTransition(0, 0);
+
+                break;
+
 
             default:
         }
