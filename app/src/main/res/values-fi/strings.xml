@@ -10,4 +10,13 @@
 
     <string name="hello_first_fragment">Heippa ensimmäinen fragmentti</string>
     <string name="hello_second_fragment">Hei toinen fragmentti. Arg: %1$s</string>
+    <string name="myscore">Minun tulokseni</string>
+    <string name="score">Huipputulos</string>
+    <string name="title_home">Koti</string>
+    <string name="title_notifications">Ilmoitukset</string>
+
+    <string name="title_dashboard">Työpöytä</string>
+
+    <string name="title_activity_main2">Pää aktiviteetti 2</string>
+
 </resources>

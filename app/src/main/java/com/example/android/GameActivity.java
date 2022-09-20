@@ -1,12 +1,16 @@
 package com.example.android;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,9 +25,14 @@ public class GameActivity extends AppCompatActivity {
     private ImageButton gamebutton3;
     private ImageButton gamebutton4;
     private FloatingActionButton floatingActionButton;
+    private TextView scoreText;
     int rand_int1;
     Animation animation;
-    public static final String PREFS_NAME = "MyPrefsFile";
+    int score;
+    private static final String KEY_HS = "HighScore: ";
+    private static final String MY_SCORE = "Score";
+    public static final String TAG = "GameActivity";
+    SharedPreferences myPreferences;
 
 
     @Override
@@ -31,14 +40,12 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation1);
-
-        //pelin tulos
-        
-
-
-
-
+        myPreferences = PreferenceManager.getDefaultSharedPreferences(GameActivity.this);
+        score = myPreferences.getInt(KEY_HS, 0);
+        scoreText = findViewById(R.id.scorebox);
+        scoreText.setText(this.getString(R.string.score) + " : " + score);
 
         gamebutton1 = findViewById(R.id.imagebutton1);
         gamebutton1.setOnClickListener(new View.OnClickListener() {
@@ -80,11 +87,11 @@ public class GameActivity extends AppCompatActivity {
 
         //random number generator
         Random rand = new Random();
-        rand_int1 = rand.nextInt(3)+1;
+        rand_int1 = rand.nextInt(3) + 1;
 
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.animation1);
         ImageView image = (ImageView) findViewById(R.id.imagebutton1);
-        image.startAnimation(animation);
+
 
     }
 
@@ -94,11 +101,15 @@ public class GameActivity extends AppCompatActivity {
             case R.id.imagebutton1:
                 gamebutton1.setVisibility(View.INVISIBLE);
                 gamebutton1.startAnimation((animation));
-                if(rand_int1 == 1) {
+                if (rand_int1 == 1) {
                     gamebutton1.setImageResource(R.mipmap.music_note);
                     gamebutton1.setBackgroundColor(Color.GREEN);
                     gamebutton1.setVisibility(View.VISIBLE);
-
+                    score = score+1;
+                    scoreText.setText(this.getString(R.string.score) + " : " + score);
+                    SharedPreferences.Editor myEditor = myPreferences.edit();
+                    myEditor.putInt(KEY_HS, score);
+                    myEditor.commit();
 
                 }
 
@@ -106,10 +117,16 @@ public class GameActivity extends AppCompatActivity {
             case R.id.imagebutton2:
                 gamebutton2.setVisibility(View.INVISIBLE);
                 gamebutton2.startAnimation((animation));
-                if(rand_int1 == 2) {
+                if (rand_int1 == 2) {
                     gamebutton2.setImageResource(R.mipmap.music_note);
                     gamebutton2.setBackgroundColor(Color.GREEN);
                     gamebutton2.setVisibility(View.VISIBLE);
+                    score = score+1;
+                    Log.e(TAG,"button2 "+ score);
+                    scoreText.setText(this.getString(R.string.score) + " : " + score);
+                    SharedPreferences.Editor myEditor = myPreferences.edit();
+                    myEditor.putInt(KEY_HS, score);
+                    myEditor.commit();
 
 
                 }
@@ -117,23 +134,36 @@ public class GameActivity extends AppCompatActivity {
             case R.id.imagebutton3:
                 gamebutton3.setVisibility(View.INVISIBLE);
                 gamebutton3.startAnimation((animation));
-                if(rand_int1 == 3) {
+                if (rand_int1 == 3) {
                     gamebutton3.setImageResource(R.mipmap.music_note);
                     gamebutton3.setBackgroundColor(Color.GREEN);
                     gamebutton3.setVisibility(View.VISIBLE);
 
+                    score = score+1;
+                    scoreText.setText(this.getString(R.string.score) + " : " + score);
+                    SharedPreferences.Editor myEditor = myPreferences.edit();
+                    myEditor.putInt(KEY_HS, score);
+                    myEditor.commit();
                 }
+
 
                 break;
             case R.id.imagebutton4:
                 gamebutton4.setVisibility(View.INVISIBLE);
                 gamebutton4.startAnimation((animation));
-                if(rand_int1 == 4) {
+                if (rand_int1 == 4) {
                     gamebutton4.setImageResource(R.mipmap.music_note);
                     gamebutton4.setBackgroundColor(Color.GREEN);
                     gamebutton4.setVisibility(View.VISIBLE);
+                    score = score+1;
+                    scoreText.setText(this.getString(R.string.score) + " : " + score);
+                    SharedPreferences.Editor myEditor = myPreferences.edit();
+                    myEditor.putInt(KEY_HS, score);
+                    myEditor.commit();
 
                 }
+
+
                 break;
 
             case R.id.fab:
@@ -141,11 +171,20 @@ public class GameActivity extends AppCompatActivity {
                 overridePendingTransition(0, 0);
                 startActivity(getIntent());
                 overridePendingTransition(0, 0);
+                /*SharedPreferences myPreferences
+                        = PreferenceManager.getDefaultSharedPreferences(GameActivity.this);
+                SharedPreferences.Editor editor = myPreferences.edit();
+                editor.putInt("KEY_HS",highestScore);
+                editor.apply();*/
+
 
                 break;
 
 
             default:
+
+
         }
     }
 }
+

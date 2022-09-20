@@ -20,6 +20,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.47" />
 
+
+
+
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="350dp"
@@ -30,8 +33,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
 
-        <TableRow android:orientation="vertical"
-            >
+        <TableRow android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/imagebutton1"
@@ -54,14 +56,12 @@
             <ImageButton
                 android:id="@+id/imagebutton3"
                 android:layout_width="150dp"
-                android:layout_height="150dp"
-               />
+                android:layout_height="150dp" />
 
             <ImageButton
                 android:id="@+id/imagebutton4"
                 android:layout_width="150dp"
-                android:layout_height="150dp"
-               />
+                android:layout_height="150dp" />
 
 
         </TableRow>
@@ -71,8 +71,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
-            android:src="@android:drawable/ic_input_add"
-            android:layout_margin="16dp" />
+            android:layout_margin="16dp"
+            android:src="@android:drawable/ic_input_add" />
+
+        <TextView
+            android:id="@+id/scorebox"
+            android:layout_width="178dp"
+            android:layout_height="63dp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/score"
+            app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.442"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.47" />
+
+
+
+
+
+
+
+
+
 
     </TableLayout>
 
