@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -31,7 +30,6 @@ public class GameActivity extends AppCompatActivity {
     int score;
     private static final String KEY_HS = "HighScore: ";
     private static final String MY_SCORE = "Score";
-    public static final String TAG = "GameActivity";
     SharedPreferences myPreferences;
 
 
@@ -122,7 +120,6 @@ public class GameActivity extends AppCompatActivity {
                     gamebutton2.setBackgroundColor(Color.GREEN);
                     gamebutton2.setVisibility(View.VISIBLE);
                     score = score+1;
-                    Log.e(TAG,"button2 "+ score);
                     scoreText.setText(this.getString(R.string.score) + " : " + score);
                     SharedPreferences.Editor myEditor = myPreferences.edit();
                     myEditor.putInt(KEY_HS, score);
@@ -138,7 +135,6 @@ public class GameActivity extends AppCompatActivity {
                     gamebutton3.setImageResource(R.mipmap.music_note);
                     gamebutton3.setBackgroundColor(Color.GREEN);
                     gamebutton3.setVisibility(View.VISIBLE);
-
                     score = score+1;
                     scoreText.setText(this.getString(R.string.score) + " : " + score);
                     SharedPreferences.Editor myEditor = myPreferences.edit();

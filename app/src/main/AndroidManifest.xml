@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.android" >
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -35,5 +39,9 @@
 
         </activity>
     </application>
+    <!-- Antaa sovelluksen käyttää tarkkaa sijaintia. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <!-- Antaa sovelluksen käyttää likimääräistä sijaintia. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 </manifest>
