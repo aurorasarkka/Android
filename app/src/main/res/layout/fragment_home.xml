@@ -59,4 +59,10 @@
         android:layout_height="48dp"
         android:text="pelaamaan" />
 
+    <Button
+        android:id="@+id/ytj_button"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="ytj haku" />
+
 </LinearLayout>

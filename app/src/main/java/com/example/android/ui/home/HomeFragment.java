@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.android.GameActivity;
+import com.example.android.Interface;
 import com.example.android.R;
 import com.example.android.databinding.FragmentHomeBinding;
 
@@ -23,6 +24,9 @@ private FragmentHomeBinding binding;
     private View welcomeTextView;
     public static final String TAG = "MyAppMessage";
     private Button gameButton;
+    private Button ytjButton;
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
@@ -48,7 +52,32 @@ private FragmentHomeBinding binding;
 
                 handleClickEvents(view);
             }
+
+            public void OnClick(View v){
+                handleClickEvents(v);
+            }
+
+
+
         });
+
+        ytjButton = root.findViewById(R.id.ytj_button);
+        ytjButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                handleClickEvents(view);
+            }
+
+            public void OnClick(View v){
+                handleClickEvents(v);
+            }
+
+
+
+        });
+
+
 
 
         //final TextView textView = binding.textHome;
@@ -67,6 +96,10 @@ private FragmentHomeBinding binding;
             case R.id.game_button:
                 Intent i = new Intent( getActivity(), GameActivity. class);
                 startActivity(i);
+                break;
+            case R.id.ytj_button:
+                Intent  I= new Intent( getActivity(), Interface. class);
+                startActivity(I);
                 break;
             case R.id.hello_button:
                 if (welcomeTextView.getVisibility() == View.VISIBLE)
