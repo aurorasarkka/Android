@@ -8,6 +8,8 @@ public class Detail {
         this.mName = mName;
         this.mPosition = mPosition;
     }
+
+
     public String getName() {
         return mName;
     }
