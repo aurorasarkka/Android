@@ -34,6 +34,7 @@ public class Interface extends AppCompatActivity {
     private String url;
     private RecycleAdapter adapter;
     private RecyclerView recyclerView;
+    private boolean expanded;
 
     private ArrayList<Company> companies = new ArrayList<Company>();
 
@@ -115,6 +116,7 @@ public class Interface extends AppCompatActivity {
                     }
 
 
+
                 });
 
         jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(20 * 1000, 1, 1.0f));
@@ -130,6 +132,7 @@ public class Interface extends AppCompatActivity {
         adapter = new RecycleAdapter(companies);
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
+
 
 
     }

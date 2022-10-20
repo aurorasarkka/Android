@@ -2,6 +2,9 @@ package com.example.android;
 
 public class Company {
 
+    public static void get(int position) {
+    }
+
     public String getName() {
         return name;
     }

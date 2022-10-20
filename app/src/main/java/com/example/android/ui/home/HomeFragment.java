@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.android.GameActivity;
 import com.example.android.Interface;
 import com.example.android.R;
-import com.example.android.Tentti;
+
 import com.example.android.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -118,10 +118,7 @@ private FragmentHomeBinding binding;
                 Intent  I= new Intent( getActivity(), Interface. class);
                 startActivity(I);
                 break;
-            case R.id.tentti_button:
-                Intent O = new Intent( getActivity(), Tentti. class);
-                startActivity(O);
-                break;
+
             case R.id.hello_button:
                 if (welcomeTextView.getVisibility() == View.VISIBLE)
                     welcomeTextView.setVisibility(View.INVISIBLE);
