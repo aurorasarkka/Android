@@ -52,7 +52,7 @@ public class Interface extends AppCompatActivity {
 
         searchText = findViewById(R.id.editText);
         searchButton = findViewById(R.id.searchButton);
-        errorText = findViewById(R.id.errorText);
+       // errorText = findViewById(R.id.errorText);
         searchButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -116,9 +116,9 @@ public class Interface extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // TODO: Handle error
-                        recyclerView.setVisibility(View.GONE);
-                        recyclerView.setVisibility(View.GONE);
-                        errorText.setText("No results");
+                       // recyclerView.setVisibility(View.GONE);
+                       // recyclerView.setVisibility(View.GONE);
+                        //errorText.setText("No results");
 
                     }
 
