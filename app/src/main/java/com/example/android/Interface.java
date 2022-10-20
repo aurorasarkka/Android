@@ -1,10 +1,12 @@
 package com.example.android;
 
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,7 +36,7 @@ public class Interface extends AppCompatActivity {
     private String url;
     private RecycleAdapter adapter;
     private RecyclerView recyclerView;
-    private boolean expanded;
+    private TextView errorText;
 
     private ArrayList<Company> companies = new ArrayList<Company>();
 
@@ -49,11 +51,14 @@ public class Interface extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         searchText = findViewById(R.id.editText);
-        searchButton = findViewById(R.id.searchBtn);
+        searchButton = findViewById(R.id.searchButton);
+        errorText = findViewById(R.id.errorText);
         searchButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                findViewById((R.id.loader)).setVisibility(View.VISIBLE);
+
                 String searchTerm = String.valueOf(searchText.getText());
                 Log.i(TAG, searchTerm);
 
@@ -111,15 +116,16 @@ public class Interface extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // TODO: Handle error
-                        Log.e(TAG, "Tuleeko virhe");
+                        recyclerView.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.GONE);
+                        errorText.setText("No results");
 
                     }
 
 
-
                 });
 
-        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(20 * 1000, 1, 1.0f));
+        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(10 * 1000, 1, 1.0f));
         requestQueue.add(jsonObjectRequest);
         Log.e(TAG, "Onnistuuko");
 
@@ -127,12 +133,13 @@ public class Interface extends AppCompatActivity {
     }
 
     private void setupView() {
-        //mProgressBar.setVisibility(view.GONE);
+
 
         adapter = new RecycleAdapter(companies);
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
 
+        findViewById(R.id.loader).setVisibility(View.GONE);
 
 
     }
