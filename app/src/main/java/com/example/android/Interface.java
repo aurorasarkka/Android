@@ -1,6 +1,5 @@
 package com.example.android;
 
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,7 +35,7 @@ public class Interface extends AppCompatActivity {
     private String url;
     private RecycleAdapter adapter;
     private RecyclerView recyclerView;
-    private TextView errorText;
+    TextView errorText;
 
     private ArrayList<Company> companies = new ArrayList<Company>();
 
@@ -50,14 +49,16 @@ public class Interface extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
+        errorText = findViewById(R.id.errorText);
+
         searchText = findViewById(R.id.editText);
         searchButton = findViewById(R.id.searchButton);
-       // errorText = findViewById(R.id.errorText);
         searchButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 findViewById((R.id.loader)).setVisibility(View.VISIBLE);
+                //findViewById((R.id.errorText)).setVisibility(View.GONE);
 
                 String searchTerm = String.valueOf(searchText.getText());
                 Log.i(TAG, searchTerm);
@@ -116,9 +117,12 @@ public class Interface extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // TODO: Handle error
-                       // recyclerView.setVisibility(View.GONE);
-                       // recyclerView.setVisibility(View.GONE);
-                        //errorText.setText("No results");
+                        Log.e(TAG, "Tuleeko virhe");
+                        //recyclerView.setVisibility(View.GONE);
+                        //recyclerView.setVisibility(View.INVISIBLE);
+                        // errorText.setText("No result");
+                        //findViewById(R.id.loader).setVisibility(View.GONE);
+
 
                     }
 
