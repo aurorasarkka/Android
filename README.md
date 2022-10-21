@@ -1,3 +1,3 @@
 Android, javaohjelmointi kurssin tehtävät.
-Kaikki muut tehtävät pitäisi toimia, piatsi rajapinta tehtävä.
-Rajapinta tehtävä tulostaa tulokset Logcattiin.
+Rajapinta tulostaa tiedot emulaattoriin. 
+Hakua listauksessa en saanut toimimaan.
